@@ -12,6 +12,12 @@ const helpers = {
 };
 
 /**
+ * TypeScript Compiler Transformer for TypeScript Object Mapper
+ * (it and test it)
+ */
+const TSObjectMapperTransformer = require("./dist/transformer");
+
+/**
  * Webpack configuration
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
@@ -45,7 +51,7 @@ module.exports = (options) => {
          * See: https://webpack.js.org/configuration/entry-context/#entry
          */
         entry: {
-            'test.spec': helpers.root('src/test', 'main.spec.ts')
+            'test': helpers.root('src/test', 'main.spec.ts')
         },
 
         /**
@@ -68,7 +74,7 @@ module.exports = (options) => {
              *
              * See: http://webpack.github.io/docs/configuration.html#output-filename
              */
-            filename: '[name].js'
+            filename: '[name].spec.js'
         },
 
         /**
@@ -94,6 +100,9 @@ module.exports = (options) => {
                     options: {
                         configFile: helpers.root('tsconfig.json'),
                         context: helpers.root('src/test'),
+                        getCustomTransformers: () => ({
+                            before: [TSObjectMapperTransformer]
+                        }),
                         compilerOptions: {}
                     }
                 }

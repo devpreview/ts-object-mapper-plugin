@@ -49,6 +49,7 @@
     "webpack": "3.11.0"
   },
   "files": [
-    "dist"
+    "dist/transformer.js",
+    "dist/transformer.js.map"
   ]
 }

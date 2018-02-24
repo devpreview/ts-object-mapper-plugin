@@ -1,14 +1,19 @@
 import * as ts from 'typescript';
 
-function transformer(program: ts.Program): null | ts.TransformerFactory<ts.SourceFile> {
-    //return (context: ts.TransformationContext) => (file: ts.SourceFile) => visitNodeAndChildren(file, program, context);
-    throw new Error('It\'s ok');
+interface TransformerOptions {
 }
 
+function transformer(context: ts.TransformationContext, options?: TransformerOptions): ts.Transformer<ts.SourceFile> {
+    return (file: ts.SourceFile) => {
+        console.log(file.fileName);
+        return file;
+    };
+}
 
-function configure(options: any) {
-    console.log('\n\n', options, '\n\n');
-    return transformer;
+function configure(options: TransformerOptions): ts.TransformerFactory<ts.SourceFile> {
+    return (context: ts.TransformationContext) => {
+        return transformer(context, options);
+    };
 }
 
 module.exports = transformer;
