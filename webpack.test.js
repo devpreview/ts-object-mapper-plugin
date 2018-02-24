@@ -100,11 +100,13 @@ module.exports = (options) => {
                     options: {
                         configFile: helpers.root('tsconfig.json'),
                         context: helpers.root('src/test'),
-                        getCustomTransformers: () => ({
-                            before: [
-                                TSObjectMapperTransformer
-                            ]
-                        })
+                        getCustomTransformers: () => {
+                            return {
+                                before: [
+                                    TSObjectMapperTransformer
+                                ]
+                            };
+                        }
                     }
                 }
             ]
