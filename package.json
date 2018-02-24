@@ -1,0 +1,34 @@
+{
+  "name": "ts-object-mapper-plugin",
+  "version": "0.0.1",
+  "deprecated": false,
+  "license": "MIT",
+  "description": "TypeScript plugin for ts-object-mapper",
+  "keywords": [
+    "JSON",
+    "JSON Serialize",
+    "JSON Deserialize",
+    "JsonProperty",
+    "DTO",
+    "Data Transfer Objects",
+    "Jackson",
+    "Object mapper"
+  ],
+  "author": {
+    "name": "Alexey Savchuk",
+    "email": "sabo@devpreview.ru"
+  },
+  "homepage": "https://github.com/devpreview/ts-object-mapper-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devpreview/ts-object-mapper-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devpreview/ts-object-mapper-plugin/issues"
+  },
+  "main": "index.js",
+  "scripts": {},
+  "bundleDependencies": false,
+  "dependencies": {},
+  "devDependencies": {}
+}
