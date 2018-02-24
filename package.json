@@ -1,6 +1,6 @@
 {
   "name": "ts-object-mapper-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "deprecated": false,
   "license": "MIT",
   "description": "TypeScript plugin for ts-object-mapper",
@@ -26,8 +26,9 @@
   "bugs": {
     "url": "https://github.com/devpreview/ts-object-mapper-plugin/issues"
   },
-  "main": "index.js",
+  "main": "./dist/ts-object-mapper-plugin.umd.js",
   "scripts": {
+    "test": "echo 'Not implemented'",
     "build": "webpack --config webpack.config.js --progress --profile --bail",
     "clean": "rimraf -- dist ts-object-mapper-plugin-*.tgz",
     "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
@@ -40,5 +41,8 @@
     "ts-loader": "3.5.0",
     "typescript": "2.7.2",
     "webpack": "3.11.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }

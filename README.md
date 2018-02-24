@@ -6,4 +6,4 @@
 [![devDependencies Status](https://david-dm.org/devpreview/ts-object-mapper-plugin/dev-status.svg)](https://david-dm.org/devpreview/ts-object-mapper-plugin?type=dev)
 [![npm](https://img.shields.io/npm/dt/ts-object-mapper-plugin.svg)](https://github.com/devpreview/ts-object-mapper-plugin/releases)
 
-# TypeScript plugin for ts-object-mapper
+# TypeScript Language Service Plugin for TypeScript Object Mapper
