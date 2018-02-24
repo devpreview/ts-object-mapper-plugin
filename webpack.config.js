@@ -77,7 +77,7 @@ module.exports = (options) => {
              *
              * See: https://webpack.js.org/configuration/output/#output-librarytarget
              */
-            libraryTarget: 'umd'
+            libraryTarget: 'commonjs2'
         },
 
         /**
@@ -122,24 +122,6 @@ module.exports = (options) => {
          * See: http://webpack.github.io/docs/configuration.html#devtool
          * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
          */
-        devtool: 'source-map',
-
-        /**
-         * Include polyfills or mocks for various node stuff
-         * Description: Node configuration
-         *
-         * See: https://webpack.github.io/docs/configuration.html#node
-         */
-        "node": {
-            "fs": "empty",
-            "global": true,
-            "crypto": "empty",
-            "tls": "empty",
-            "net": "empty",
-            "process": true,
-            "module": false,
-            "clearImmediate": false,
-            "setImmediate": false
-        }
+        devtool: 'source-map'
     };
 };
