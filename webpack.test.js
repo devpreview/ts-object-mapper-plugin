@@ -8,9 +8,7 @@ const helpers = {
     root: function (args) {
         args = Array.prototype.slice.call(arguments, 0);
         return path.join.apply(path, [_root].concat(args));
-    },
-
-    transformerVersion: require("./package.json").version
+    }
 };
 
 /**
@@ -39,7 +37,7 @@ module.exports = (options) => {
          *
          * See: https://webpack.js.org/concepts/targets/
          */
-        target: 'node',
+        target: 'web',
 
         /*
          * The entry point for the bundle
@@ -47,7 +45,7 @@ module.exports = (options) => {
          * See: https://webpack.js.org/configuration/entry-context/#entry
          */
         entry: {
-            'transformer': helpers.root('src/main', 'transformer.ts')
+            'test.spec': helpers.root('src/test', 'main.spec.ts')
         },
 
         /**
@@ -62,7 +60,7 @@ module.exports = (options) => {
              *
              * See: https://webpack.js.org/configuration/output/#output-path
              */
-            path: helpers.root('dist'),
+            path: helpers.root('dist/test'),
 
             /**
              * Specifies the name of each output file on disk.
@@ -70,14 +68,7 @@ module.exports = (options) => {
              *
              * See: http://webpack.github.io/docs/configuration.html#output-filename
              */
-            filename: '[name].js',
-
-            /**
-             * Configure how the library will be exposed.
-             *
-             * See: https://webpack.js.org/configuration/output/#output-librarytarget
-             */
-            libraryTarget: 'commonjs2'
+            filename: '[name].js'
         },
 
         /**
@@ -102,7 +93,7 @@ module.exports = (options) => {
                     loader: 'ts-loader',
                     options: {
                         configFile: helpers.root('tsconfig.json'),
-                        context: helpers.root('src/main'),
+                        context: helpers.root('src/test'),
                         compilerOptions: {}
                     }
                 }
@@ -122,6 +113,24 @@ module.exports = (options) => {
          * See: http://webpack.github.io/docs/configuration.html#devtool
          * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
          */
-        devtool: 'source-map'
-    };
+        devtool: 'source-map',
+
+        /**
+         * Include polyfills or mocks for various node stuff
+         * Description: Node configuration
+         *
+         * See: https://webpack.js.org/configuration/node/
+         */
+        "node": {
+            "fs": "empty",
+            "global": true,
+            "crypto": "empty",
+            "tls": "empty",
+            "net": "empty",
+            "process": true,
+            "module": false,
+            "clearImmediate": false,
+            "setImmediate": false
+        }
+    }
 };
