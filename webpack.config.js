@@ -13,6 +13,8 @@ const helpers = {
     transformerVersion: require("./package.json").version
 };
 
+const nodeExternals = require('webpack-node-externals');
+
 /**
  * Webpack configuration
  *
@@ -31,8 +33,17 @@ module.exports = (options) => {
              *
              * See: https://webpack.js.org/configuration/resolve/#resolve-extensions
              */
-            extensions: ['.ts']
+            extensions: ['.ts', '.js']
         },
+
+        /**
+         * The externals configuration option provides a way of excluding dependencies
+         * from the output bundles.
+         *
+         * See: https://webpack.js.org/configuration/externals/
+         * See: https://github.com/liady/webpack-node-externals
+         */
+        externals: [nodeExternals()],
 
         /**
          * Instructs webpack to target a specific environment.
@@ -77,7 +88,15 @@ module.exports = (options) => {
              *
              * See: https://webpack.js.org/configuration/output/#output-librarytarget
              */
-            libraryTarget: 'commonjs2'
+            libraryTarget: 'commonjs2',
+
+            /**
+             * Configure which module or modules will be exposed via the libraryTarget.
+             *
+             * See: https://webpack.js.org/configuration/output/#output-libraryexport
+             * See: https://github.com/webpack/webpack/issues/706#issuecomment-361923568
+             */
+            libraryExport: "default"
         },
 
         /**
@@ -102,8 +121,7 @@ module.exports = (options) => {
                     loader: 'ts-loader',
                     options: {
                         configFile: helpers.root('tsconfig.json'),
-                        context: helpers.root('src/main'),
-                        compilerOptions: {}
+                        context: helpers.root('src/main')
                     }
                 }
             ]

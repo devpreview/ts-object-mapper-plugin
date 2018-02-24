@@ -1,6 +1,6 @@
 {
   "name": "ts-object-mapper-transformer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "deprecated": false,
   "license": "MIT",
   "description": "TypeScript Compiler Transformer for ts-object-mapper",
@@ -44,9 +44,11 @@
     "@types/node": "8.9.4",
     "jasmine": "3.0.0",
     "rimraf": "2.6.2",
+    "source-map-support": "0.5.3",
     "ts-loader": "3.5.0",
     "typescript": "2.7.2",
-    "webpack": "3.11.0"
+    "webpack": "3.11.0",
+    "webpack-node-externals": "1.6.0"
   },
   "files": [
     "dist/transformer.js",

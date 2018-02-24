@@ -1,20 +1,27 @@
-import * as ts from 'typescript';
+import {
+    TransformerFactory,
+    TransformationContext,
+    Transformer,
+    SourceFile,
+    visitEachChild,
+    Visitor,
+    Node,
+    visitNode
+} from 'typescript';
 
 interface TransformerOptions {
 }
 
-function transformer(context: ts.TransformationContext, options?: TransformerOptions): ts.Transformer<ts.SourceFile> {
-    return (file: ts.SourceFile) => {
-        console.log(file.fileName);
-        return file;
+export default function transformer(context: TransformationContext, options?: TransformerOptions): Transformer<SourceFile> {
+    const visitor: Visitor = (node: Node) => {
+        console.log('\n\n', node.getText(), '\n\n');
+        return visitEachChild(node, visitor, context);
     };
+    return (node) => visitNode(node, visitor);
 }
 
-function configure(options: TransformerOptions): ts.TransformerFactory<ts.SourceFile> {
-    return (context: ts.TransformationContext) => {
+export function configure(options: TransformerOptions): TransformerFactory<SourceFile> {
+    return (context: TransformationContext) => {
         return transformer(context, options);
     };
 }
-
-module.exports = transformer;
-module.exports.configure = configure;
