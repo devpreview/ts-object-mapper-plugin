@@ -27,8 +27,18 @@
     "url": "https://github.com/devpreview/ts-object-mapper-plugin/issues"
   },
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --config webpack.config.js --progress --profile --bail",
+    "clean": "rimraf -- dist ts-object-mapper-plugin-*.tgz",
+    "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
+  },
   "bundleDependencies": false,
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "8.9.4",
+    "rimraf": "2.6.2",
+    "ts-loader": "3.5.0",
+    "typescript": "2.7.2",
+    "webpack": "3.11.0"
+  }
 }
