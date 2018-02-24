@@ -10,7 +10,7 @@ const helpers = {
         return path.join.apply(path, [_root].concat(args));
     },
 
-    pluginVersion: require("./package.json").version
+    transformerVersion: require("./package.json").version
 };
 
 /**
@@ -39,7 +39,7 @@ module.exports = (options) => {
          *
          * See: https://webpack.js.org/concepts/targets/
          */
-        target: 'web',
+        target: 'node',
 
         /*
          * The entry point for the bundle
@@ -47,7 +47,7 @@ module.exports = (options) => {
          * See: http://webpack.github.io/docs/configuration.html#entry
          */
         entry: {
-            'ts-object-mapper-plugin': helpers.root('src/main', 'plugin.ts')
+            'ts-object-mapper-transformer': helpers.root('src/main', 'transformer.ts')
         },
 
         /**

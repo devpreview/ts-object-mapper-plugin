@@ -1,9 +1,9 @@
 {
-  "name": "ts-object-mapper-plugin",
+  "name": "ts-object-mapper-transformer",
   "version": "0.0.2",
   "deprecated": false,
   "license": "MIT",
-  "description": "TypeScript plugin for ts-object-mapper",
+  "description": "TypeScript Compiler Transformer for ts-object-mapper",
   "keywords": [
     "JSON",
     "JSON Serialize",
@@ -18,19 +18,19 @@
     "name": "Alexey Savchuk",
     "email": "sabo@devpreview.ru"
   },
-  "homepage": "https://github.com/devpreview/ts-object-mapper-plugin",
+  "homepage": "https://github.com/devpreview/ts-object-mapper-transformer",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devpreview/ts-object-mapper-plugin.git"
+    "url": "git+https://github.com/devpreview/ts-object-mapper-transformer.git"
   },
   "bugs": {
-    "url": "https://github.com/devpreview/ts-object-mapper-plugin/issues"
+    "url": "https://github.com/devpreview/ts-object-mapper-transformer/issues"
   },
-  "main": "./dist/ts-object-mapper-plugin.umd.js",
+  "main": "./dist/ts-object-mapper-transformer.umd.js",
   "scripts": {
     "test": "echo 'Not implemented'",
     "build": "webpack --config webpack.config.js --progress --profile --bail",
-    "clean": "rimraf -- dist ts-object-mapper-plugin-*.tgz",
+    "clean": "rimraf -- dist ts-object-mapper-transformer-*.tgz",
     "clean:all": "npm run clean && rimraf -- node_modules package-lock.json"
   },
   "bundleDependencies": false,
