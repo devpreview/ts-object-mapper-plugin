@@ -33,7 +33,7 @@ module.exports = (options) => {
              *
              * See: https://webpack.js.org/configuration/resolve/#resolve-extensions
              */
-            extensions: ['.ts', '.js']
+            extensions: ['.ts']
         },
 
         /**
