@@ -11,28 +11,30 @@ import {
     updateProperty,
     isClassDeclaration,
     VisitResult,
-    createNull,
-    SyntaxKind
+    PropertyDeclaration,
+    createIdentifier
 } from 'typescript';
 
 interface TransformerOptions {
+}
+
+function undefinedPropertyTransformer(context: TransformationContext, property: PropertyDeclaration): VisitResult<PropertyDeclaration> {
+    return updateProperty(
+        property,
+        property.decorators,
+        property.modifiers,
+        property.name,
+        property.questionToken,
+        property.type,
+        createIdentifier('undefined')
+    );
 }
 
 export default function transformer(context: TransformationContext, options?: TransformerOptions): Transformer<SourceFile> {
     const visitor: Visitor = (node: Node): VisitResult<Node> => {
         if (isPropertyDeclaration(node) && isClassDeclaration(node.parent as Node)) {
             if (!node.initializer) {
-                console.log('\n===THIS===\n');
-                return updateProperty(
-                    node,
-                    node.decorators,
-                    node.modifiers,
-                    node.name,
-                    node.questionToken,
-                    node.type,
-                    createNull()
-                );
-                //SyntaxKind.UndefinedKeyword
+                return undefinedPropertyTransformer(context, node);
             }
         }
         return visitEachChild(node, visitor, context);
