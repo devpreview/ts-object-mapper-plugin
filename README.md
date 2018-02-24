@@ -6,4 +6,4 @@
 [![devDependencies Status](https://david-dm.org/devpreview/ts-object-mapper-transformer/dev-status.svg)](https://david-dm.org/devpreview/ts-object-mapper-transformer?type=dev)
 [![npm](https://img.shields.io/npm/dt/ts-object-mapper-transformer.svg)](https://github.com/devpreview/ts-object-mapper-transformer/releases)
 
-# TypeScript Compiler Transformer for TypeScript Object Mapper
+# TypeScript Compiler Transformer for [TypeScript Object Mapper](https://github.com/devpreview/ts-object-mapper)
